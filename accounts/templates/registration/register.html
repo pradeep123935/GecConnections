@@ -1,0 +1,173 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="{% static 'css/Register.css' %}"/>
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="full-page">
+            <div class="center" style="box-shadow: 0 4px 8px 0 ">
+                <h1 align="center" style="padding-top: 30px;font-family:Dancing Script, cursive;padding-bottom: 30px">GEC Connections</h1>
+                <h2 align="center" style="padding-top: 20px;padding-bottom: 20px;">Register</h2>
+                <p style="font-family: times new roman">
+                  {% if form.non_field_errors %}
+                      {% for error in form.non_field_errors %}
+                          {{ error }}
+                      {% endfor %}
+                  {% endif %}
+              </p>
+                <form method="post">
+                  {% csrf_token %}
+                    <div class="txt_field">
+                     
+                      <input type="text" name="username" maxlength="10" autofocus required id="id_username">
+                        <label>{{ form.username.label }}</label>
+                        
+                    </div>
+                    <span>{{ form.username.errors }}</span>
+                    <div class="txt_field">
+                      
+                      <input type="password" name="password1" autofocus required id="id_password1">
+                        <span></span>
+                        <label>{{ form.password1.label }}</label>
+      
+                    </div>
+                    <span>{{ form.password1.errors }}</span>
+                    <div class="txt_field">
+            
+                      <input type="password" name="password2" autofocus required id="id_password2">
+                        <span></span>
+                        <label>{{ form.password2.label }}</label>
+                        
+                    </div>
+                    <span>{{ form.password2.errors }}</span>
+                    <input type="submit" value="Register">
+                    <div class="signup_link">
+                        have an account? <a href="{% url 'login' %}">Click here</a> 
+                     </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup form</title>
+    
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+\
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+	<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+  </head>
+  <body>
+    <div id="header">
+      <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <a class="navbar-brand" href="#">Gec connections</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsibleNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}"
+                ><button type="button" class="btn btn-outline-info">
+                  Login
+                </button></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="back">
+      <div class="container flexi">
+        <div class="row ex">
+          <div class="col-md-6">
+            <img class="auth" src="{% static 'images/authentication.png' %}" />
+          </div>
+          <div class="col-md-6 brd">
+            <form action="" method="POST" id="contactForm">
+				{% csrf_token %}
+              <h4 class="text-center">Signup form</h4>
+			  <span  style="color: white;">{{ form.username.errors }}</span>
+              <div class="form-group">
+                {{ form.username }}
+              </div>
+			  <span style="color: white;">{{ form.password1.errors }}</span>
+              <div class="form-group">
+                {{ form.password1 }}
+              </div>
+			  <span style="color: white;">{{ form.password2.errors }}</span>
+              <div class="form-group">
+                {{ form.password2 }}
+              </div>
+
+              <button
+                id="submit"
+                type="submit"
+                class="btn btn-success"
+                onclick="document.getElementById('visible').style.visibility='visible'"
+              >
+                Submit
+              </button>
+
+              <div style="color: #fff" class="form-group extra">
+            	 have an account ?
+                <a href="{% url 'login' %}" class="account-exits">click here</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+-->
+<!--
+
+
+<br>
+<br>
+<br>
+<div class = "form-container col-10 shadow card card-body">
+	<div class = "form-group">
+		<h2 align="center" style="color:#245072;font-family:Times New Roman;font-weight: bold;">Register</h2>
+		<form method="POST"> 
+		{% csrf_token %}
+		{{ form }}
+		 <button type="submit" class="btn btn-lg btn-block" style = "background-color:#245072;color:white;border-radius: 12px;">Register</button>
+		</form>
+	</div>
+</div>
+
+
+-->

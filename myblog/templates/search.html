@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+{% block title %} 
+  search 
+ {% endblock %}
+{% block content %}
+	{% if post1|length < 1 and user1|length < 1 %}
+	{% else %}
+	{% for user in user1 %}
+
+				<div class="card card-body shadow border border-dark">
+					<div>
+						<div class="justify-content" style="display: flex">
+    		                <div><img src="{{ user.pic.url }}" alt="profilepic" height = "50px" width="50px" class="rounded-circle"></div>
+    		                      <div>
+                               <h5 style="position:relative;left: 18px;top:18px;">{{user.user}}</h5>
+                           </div>
+                      </div>
+                      <a href="{% url 'user_profile' user.user %}"><h6  style="position:relative;left: 6px;top:5px;">View Profile</h6></a>
+					</div>
+			</div>
+	<br>
+	{% endfor %}
+</br>
+
+		{% for post in post1 %}
+		<div class="card card-body shadow border border-dark">
+		<h3>{{post.title}}</h3>
+		{{ post.snippet }}</br>
+		<a href ="{% url 'blog-detail' post.pk %}">Read More..</a>
+	</div>
+	<br>
+ 	 {% endfor %}
+
+
+  {% endif %}
+{% endblock %}

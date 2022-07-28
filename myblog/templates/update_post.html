@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+{% block title %} 
+  Edit Post
+ {% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+	{% if user.id == post.author.id %}
+	<div class="card shadow border border-dark">
+		<div class="card-body">
+			<h1 style="font-family: times new roman;text-align: center;">Edit Your Blog</h1>
+		<div class = "form-group col-13">
+		<form method="POST" enctype = "multipart/form-data"	> 
+			{% csrf_token %}
+			{{ form.media }}
+			{{ form.as_p }}
+			<div class= "d-flex justify-content-center">
+		 <button type="submit" class="btn" style = "background-color:#245072;color:white;border-radius: 18px;padding: 10px 48px;font-size: large;font-family: times new roman">Update</button>
+	</div>
+		</form>
+		</div>
+	</div>
+</div>
+	{% endif %}
+{% endif %}
+
+{% endblock %}
+
+{% block last %}
+ {% endblock %}

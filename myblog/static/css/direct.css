@@ -1,0 +1,242 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  
+}
+
+#chat-container {
+  display: grid;
+  grid:
+    "search-container chat-title" 71px
+    "conversation-list chat-message-list" 1fr
+    "new-message-container chat-form" 78px
+    / 275px 1fr;
+  min-width: 800px;
+  max-width: 1000px;
+  max-height: 800px;
+  width: 100%;
+  height: 95vh;
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+#search-container,
+#conversation-list,
+#new-message-container {
+  background: #002c88;
+}
+
+#search-container {
+  display: grid;
+  align-items: center;
+  padding: 0 20px;
+  grid-area: search-container;
+  border-radius: 10px 0 0 0;
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+#search-container input {
+  width: 100%;
+  padding: 2px 15px;
+  font-size: 15px;
+  color: #000;
+  outline: none;
+  height: 40px;
+  font-weight: 650;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+#conversation-list {
+  grid-area: conversation-list;
+  overflow-y: scroll;
+}
+
+.conversation {
+  display: grid;
+  grid-template-columns: 40px 1fr max-content;
+  grid-gap: 10px;
+  color: #ddd;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #002c88;
+  padding: 20px 20px 20px 15px;
+
+}
+
+.conversation.active,
+.conversation:hover {
+  background: #0048aa;
+}
+
+.conversation:hover {
+  cursor: pointer;
+}
+
+.conversation > img {
+  grid-row: span 2;
+  height: 40px;
+  width: 35px;
+  border-radius: 100%;
+}
+
+.title-text {
+  font-weight: bold;
+  color: #eee;
+  padding-left: 5px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.created-date {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+.conversation-message {
+  grid-column: span 2;
+  padding-left: 5px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  
+}
+#new-message-container {
+  display: grid;
+  grid: 40px/40px;
+  align-content: center;
+  grid-area: new-message-container;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 0 10px;
+  padding: 0 15px;
+}
+#new-message-container a {
+  display: grid;
+  place-content: center center;
+  background: #eee;
+  border-radius: 100%;
+  color: #002c88;
+  text-decoration: none;
+  font-size: 3.6rem;
+}
+
+#chat-title,
+#chat-form {
+  background: #eee;
+}
+
+#chat-title {
+  display: grid;
+  grid: 36px / 1fr 36px;
+  align-content: center;
+  align-items: center;
+  grid-area: chat-title;
+  color: #0048aa;
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 0 10px 0 0;
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.75);
+  padding: 0 20px;
+}
+
+.message-row {
+  display: grid;
+  grid-template-columns: 70%;
+  margin-bottom: 20px;
+}
+
+.you-message {
+  justify-content: end;
+  justify-items: end;
+}
+
+.other-message {
+  justify-items: start;
+}
+
+.message-text {
+  padding: 10px 14px;
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+  margin: 3px 16px;
+}
+
+.message-time {
+  font-size: 1.1rem;
+  color: #777;
+  margin: 3px 16px;
+}
+
+
+.you-message .message-text {
+  background: #0048aa;
+  color: #eee;
+  border: 1px solid #0048aa;
+  border-radius: 14px 14px 0 14px;
+
+}
+
+.other-message .message-text {
+  background: #eee;
+  color: #111;
+  border: 1px solid #ddd;
+  border-radius: 14px 14px 14px 0;
+}
+/* #chat-form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+} */
+
+
+#chat-form form {
+  display: grid;
+  grid: 42px/550px 1fr;
+  grid-area: chat-form;
+  border-radius: 0 0 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  padding-left: 42px;
+  padding-right: 30px;
+  padding-top: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: -webkit-fill-available;
+}
+
+#chat-from input {
+  width: 100%;
+  padding: 2px 15px;
+  font-size: 15px;
+  color: #000;
+  outline: none;
+  height: 40px;
+  font-weight: 650;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#btn {
+  background: none;
+  border: none;
+  outline: none;
+  background: #0048aa;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 650;
+  letter-spacing: 1.2px;
+}

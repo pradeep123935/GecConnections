@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #f1f1f1;
+  height: 100vh;
+}
+nav {
+  background:#245072;
+}
+#header {
+  height: 15vh;
+  padding: 10px 15px;
+  z-index: 30;
+  background: #f8f5f1;
+}
+
+
+.navbar {
+  line-height: 70px;
+  padding: 10px 45px;
+  box-shadow: 0 0 8px 10px rgb(0 0 0 / 10%);
+}
+.navbar-brand {
+  font-family: "Dancing Script", cursive;
+  font-weight: 650;
+  font-size: 40px;
+  color: white;
+
+}
+.btn {
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  text-transform: capitalize;
+}
+
+.carousel-inner img {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  opacity: 0.55;
+  height: 85vh;
+  z-index: -20;
+}
+.carousel-caption {
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+.carousel-caption h1 {
+  color: #03506f;
+  z-index: 30;
+}
+
+.carousel-caption p {
+  font-size: 45px;
+  color: #222831;
+}
+
+@media (max-width: 340px) {
+  .navbar {
+    padding: 10px 25px;
+  }
+  .carousel-inner img {
+    object-fit: cover;
+    background-position: center center;
+  }
+  .navbar-brand {
+    font-size: 35px;
+  }
+}
